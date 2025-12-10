@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Høgskolen JS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Høgskolen JS</h1>
+    </header>
+    
+    <nav>
+      <button onclick="visAlle()">Vis alle ansatte</button>
+      <button onclick="visUndervisere()">Vis undervisere</button>
+      <button onclick="visAdministrasjon()">Vis administrasjon</button>
+      <p>Vis kun stilling:</p><br>
+      <button onclick="filtrer('Professor')">Professor</button>
+      <button onclick="filtrer('Dekan')">Dekan</button>
+      <button onclick="filtrer('Rektor')">Rektor</button>
+      <button onclick="filtrer('Vaktmester')">Vaktmester</button>
+      <button onclick="filtrer('Lektor')">Lektor</button>
+    </nav>
+
+  <main>
+    <section>
+      <h2>Ansatte</h2>
+      <section id="ansattListe"></section>
+      <article class="ansattkort"></article>
+    </section>
+    <aside>
+        <h2>Kursoversikt</h2>
+        <section id="kursListe"></section>
+    </aside>
+  </main>
+
+  <footer>
+    <p>2025 Høgskolen JS</p>
+  </footer>
+
+  <script src="../oppgave1/register.js"></script>
+  <script src="../oppgave1/actions.js"></script>
+</body>
+</html>
