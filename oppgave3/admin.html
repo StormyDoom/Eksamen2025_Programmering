@@ -7,6 +7,58 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h3>Hei</h3>
+    <header>
+        <h1>Høgskolen JS</h1>
+    </header>
+
+    <section>
+        <h2>Legg til ansatt</h2>
+        <form id="ansattSkjema">
+            <label>
+                Fornavn:
+                <input type="text" name="fornavn" id="fornavn" placeholder="Fornavn" required>
+            </label>
+            <label>
+                Etternavn:
+                <input type="text" name="etternavn" id="etternavn"placeholder="Etternavn" required>
+            </label>
+            <label>
+                E-post:
+                <input type="email" name="epost" id="epost"placeholder="din@email" required>
+            </label>
+            <label>
+                Kontor:
+                <input type="text" name="kontor" id="kontor" placeholder="Kontor" required>
+            </label>
+            <label>
+                Stilling:
+                <select name="stilling" id="stilling" required>
+                    <option value="">Velg stilling</option>
+                    <option value="0">Rektor</option>
+                    <option value="1">Dekan</option>
+                    <option value="2">Vaktmester</option>
+                    <option value="3">Professor</option>
+                    <option value="4">Lektor</option>
+                </select>
+            </label>
+            <label>
+                Kurs:
+                <input type="text" name="kurs" id="kurs" placeholder="Kurs">
+            </label>
+            <button onclick="leggTilUnderviser()">Legg til ansatt</button>
+
+        </form>
+    </section>
+    <section>
+      <section id="ansattListe"></section>
+      <article class="ansattkort"></article>
+    </section>
+
+  <footer>
+    <p>Høgskolen JS 2025</p>
+  </footer>
+
+  <script src="../oppgave1/register.js"></script>
+  <script src="../oppgave1/actions.js"></script>
 </body>
 </html>

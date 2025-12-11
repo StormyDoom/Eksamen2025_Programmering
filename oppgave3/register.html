@@ -2,19 +2,19 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8">
-  <title>Høgskolen JS</title>
+  <title>Register</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Høgskolen JS</h1>
     </header>
-    
+  <main>  
     <nav>
       <button onclick="visAlle()">Vis alle ansatte</button>
       <button onclick="visUndervisere()">Vis undervisere</button>
       <button onclick="visAdministrasjon()">Vis administrasjon</button>
-      <p>Vis kun stilling:</p><br>
+      <p>Vis kun stilling:</p>
       <button onclick="filtrer('Professor')">Professor</button>
       <button onclick="filtrer('Dekan')">Dekan</button>
       <button onclick="filtrer('Rektor')">Rektor</button>
@@ -22,7 +22,6 @@
       <button onclick="filtrer('Lektor')">Lektor</button>
     </nav>
 
-  <main>
     <section>
       <h2>Ansatte</h2>
       <section id="ansattListe"></section>
@@ -35,7 +34,7 @@
   </main>
 
   <footer>
-    <p>2025 Høgskolen JS</p>
+    <p>Høgskolen JS 2025</p>
   </footer>
 
   <script src="../oppgave1/register.js"></script>

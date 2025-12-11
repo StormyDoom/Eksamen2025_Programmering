@@ -21,9 +21,11 @@ function lagAnsattKort(index) {
   } else {
     kursTekst = "<p>Ingen kursansvar</p>";
   }
+  const erAdmin = location.pathname.includes("admin.html") //Gjør at den vet om den er på admin.html siden eller ikke. Hentet fra CoPilot #OPPD3
 
   // Returnerer HTML-struktur for ansattkortet
   //Lagt til en article og en klasse som lager ansattkort #OPPD3
+  //Lagt til selve knappen som sletter. Hentet fra CoPilot #OPPD3
   return `
   <article class="ansattkort"> 
     <h3>${person.fornavn} ${person.etternavn}</h3>
@@ -31,9 +33,12 @@ function lagAnsattKort(index) {
     <p>Kontor: ${person.kontor}</p>
     <p>E-post: ${person.epost}</p>
     <p>Kursansvar: ${kursTekst}</p>
+    ${erAdmin ? `<button onclick="slettAnsatt(${index})">Slett</button>` : ""} 
   </article>
-  `;
+  `; 
 }
+
+document.getElementById("ansattListe").innerHTML = visAlleAnsatte() //Lagt inn denne for at alle ansatte skal dukke opp med en gang #OPPD3
 
 /**
  * 2. Funksjon som viser alle ansatte
@@ -136,7 +141,15 @@ function visAdministrasjon() {
 /**
  * 7. Funksjon som legger til en underviser 
  */
-function leggTilUnderviser(fornavn, etternavn, kontor, stilling, epost, kursansvar) {
+
+function leggTilUnderviser() {
+  const fornavn = document.getElementById("fornavn").value; //Lagt til dette for at den skal klare å lese av verdiene som er i skjemaet #OPPD3
+  const etternavn = document.getElementById("etternavn").value;
+  const kontor = document.getElementById("kontor").value;
+  const stilling = document.getElementById("stilling").value;
+  const epost = document.getElementById("epost").value;
+  const kursansvar = document.getElementById("kurs").value.split(",");
+
   ansatte.push({
     fornavn,
     etternavn,
@@ -145,17 +158,21 @@ function leggTilUnderviser(fornavn, etternavn, kontor, stilling, epost, kursansv
     epost,
     kursansvar
   });
+  
+  document.getElementById("ansattListe").innerHTML = visAlleAnsatte() //Lagt inn for at det skal vises ny side med ansatte og den nye #OPPD3
+
+  document.getElementById("ansattSkjema").reset() //Lagt inn for at skjema skal tømme seg #OPPD3 
 }
+
 
 /**
  * 8. Funksjon som sletter en ansatt basert på index
  */
 function slettAnsatt(index) {
   if (index >= 0 && index < ansatte.length) {
-    ansatte.splice(index, 1); // Fjerner ansatt fra listen
+    ansatte.splice(index, 1);
+    document.getElementById("ansattListe").innerHTML = ansatte.map((_, i) => lagAnsattKort(i)).join(""); //Gjør at ansatte blir slettet, men ikke alle samtidig. Hentet fra CoPilot #OPPD3
     return true;
   }
   return false;
 }
-
-document.getElementById("ansattListe").innerHTML = visAlleAnsatte() //Lagt inn denne for at alle ansatte skal dukke opp med en gang, og lagt denne nederst fordi da er alle funksjonene definert #OPPD3
