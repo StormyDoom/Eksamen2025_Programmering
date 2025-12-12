@@ -25,7 +25,7 @@ function lagAnsattKort(index) {
 
   // Returnerer HTML-struktur for ansattkortet
   //Lagt til en article og en klasse som lager ansattkort #OPPD3
-  //Lagt til selve knappen som sletter. Hentet fra CoPilot #OPPD3
+  //Lagt til selve knappen som sletter direkte i HTML strukturen i JavaScript-koden #OPPD3
   return `
   <article class="ansattkort"> 
     <h3>${person.fornavn} ${person.etternavn}</h3>
@@ -33,7 +33,7 @@ function lagAnsattKort(index) {
     <p>Kontor: ${person.kontor}</p>
     <p>E-post: ${person.epost}</p>
     <p>Kursansvar: ${kursTekst}</p>
-    ${erAdmin ? `<button onclick="slettAnsatt(${index})">Slett</button>` : ""} 
+    ${erAdmin ? `<button onclick="slettAnsatt(${index})">Slett</button` : ""} 
   </article>
   `; 
 }
